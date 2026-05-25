@@ -12,7 +12,7 @@
 
 ## Validation 4.1: Character Inventory — COMPLETE
 
-705,436 total characters across 6,348 verse text fields. 325,665 letter instances. 36 unique letter forms. Zero invisible characters.
+705,436 total characters across 6,348 verse text fields. 327,793 letter instances. 36 unique letter forms. Zero invisible characters.
 
 ### Letters (36 unique forms)
 
@@ -85,7 +85,7 @@
 
 | Char | Code | Count | Name |
 |------|------|-------|------|
-| (space) | U+0020 | 77,877 | SPACE |
+| (space) | U+0020 | 71,530 | SPACE |
 | ۥ | U+06E5 | 1,257 | ARABIC SMALL WAW |
 | ۦ | U+06E6 | 995 | ARABIC SMALL YEH |
 | ـ | U+0640 | 495 | ARABIC TATWEEL |
