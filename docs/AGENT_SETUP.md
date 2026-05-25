@@ -129,8 +129,8 @@ A milestone FAILS if tests fail after 3 retry attempts.
 - word_index, verse_index, surah_index, mushaf_position
 - word_position (initial/medial/final), verse_position, surah_position
 - preceding_letter, following_letter
-**Exit**: tests/test_extract_letters.py passes (total count = 325,665; spot-checks on known verses). milestones/M1.json written.
-**Notify**: "Letter extraction complete. 325,665 instances indexed."
+**Exit**: tests/test_extract_letters.py passes (total count = 327,793; spot-checks on known verses). milestones/M1.json written.
+**Notify**: "Letter extraction complete. 327,793 instances indexed."
 
 ## M2: Diacritical Stream Extraction
 **Entry**: M1 complete
