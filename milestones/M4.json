@@ -1,0 +1,24 @@
+{
+  "milestone": "M4",
+  "status": "complete",
+  "completed_at": "2026-05-26T12:30 UTC",
+  "total_letter_instances": 327793,
+  "hamza_seats": {
+    "alif_above": 8900,
+    "alif_below": 5088,
+    "standalone": 3059,
+    "ya": 921,
+    "waw": 706,
+    "none": 309119
+  },
+  "total_hamza_seat_instances": 18674,
+  "has_maddah_true": 5376,
+  "note_maddah": "U+0653 appears on 22 different letter types. Most frequent: bare alif (U+0627, 2945), alif maqsura (U+0649, 839), waw (U+0648, 583). Not an alif-specific mark — recorded as observed.",
+  "has_combining_hamza_true": 496,
+  "note_combining_hamza": "U+0654 (combining hamza above) as a diacritic mark on 496 letter instances. Distinct from the five standard hamza seat letters.",
+  "output": "data/processed/letters_with_hamza.csv",
+  "columns_added": ["hamza_seat", "has_maddah", "has_combining_hamza"],
+  "tests": "tests/test_track_hamza.py",
+  "tests_passed": 19,
+  "next": "M5: Articulatory zone assignment (7 zones, static lookup)"
+}
