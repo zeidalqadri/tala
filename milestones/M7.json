@@ -1,0 +1,32 @@
+{
+  "milestone": "M7",
+  "status": "complete",
+  "completed_at": "2026-05-26T16:30 UTC",
+  "total_letter_instances": 327793,
+  "total_columns": 27,
+  "layers": {
+    "positional": ["mushaf_pos", "surah", "verse", "word_idx", "char_idx", "letter", "codepoint"],
+    "diacritics": ["primary_diacritic", "primary_diacritic_cp", "all_diacritics", "all_diacritics_cps", "has_shadda", "has_tanween", "tanween_type"],
+    "shadda": ["shadda_type", "shadda_sonic_count", "shadda_visual_count"],
+    "hamza": ["hamza_seat", "has_maddah", "has_combining_hamza"],
+    "sonic": ["zone", "zone_name", "has_ghunna"],
+    "geometric": ["geometric_family", "dot_count", "dot_position", "is_non_connector"]
+  },
+  "unique_codepoints": 36,
+  "surahs": 114,
+  "key_counts": {
+    "shadda": 23016,
+    "tanween": 8893,
+    "ghunna": 61651,
+    "non_connectors": 113480,
+    "maddah": 5376
+  },
+  "output": "data/processed/tala_unified.csv",
+  "stats_file": "data/processed/tala_unified.json",
+  "module": "src/parser/unify_dataset.py",
+  "tests": "tests/test_unify_dataset.py",
+  "tests_passed": 28,
+  "total_suite": 166,
+  "note": "Canonical unified dataset merging M1-M6. Full pipeline validated: positional integrity (sequential mushaf_pos), diacritic counts, shadda types, hamza seats, zone assignments, geometric families. Cross-layer consistency verified: tanween↔ghunna, hamza↔zone2, non-connectors↔{singleton,knee,curve}.",
+  "next": "Cycle 1: Exploratory analysis across all four layers"
+}
