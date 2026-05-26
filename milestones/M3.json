@@ -2,13 +2,14 @@
   "milestone": "M3",
   "status": "complete",
   "completed_at": "2026-05-26T12:00 UTC",
+  "revised_at": "2026-05-26T13:30 UTC",
   "total_letter_instances": 327793,
   "shadda_total": 23016,
-  "shadda_true_doubling": 13580,
+  "shadda_true_doubling": 13843,
   "shadda_al_assimilation": 7170,
-  "shadda_noon_assimilation": 2266,
+  "shadda_noon_assimilation": 2003,
   "output": "data/processed/letters_with_shadda.csv",
   "tests": "tests/test_decompose_shadda.py",
   "tests_passed": 13,
-  "note": "Classification is purely context-based. al_assimilation: [alif][lam][sun_letter] pattern + aللّ lam-lam pattern. noon_assimilation: preceding noon or tanween (same-word or cross-word)."
+  "note": "noon_assimilation is cross-word only. Same-word noon+shadda reclassified as true_doubling (morphological gemination indistinguishable from assimilation without external verb-form knowledge). Tanween treated as shadow noon per project framework (§2.7)."
 }

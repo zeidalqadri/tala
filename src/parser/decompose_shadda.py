@@ -4,10 +4,20 @@
 Classifies each of the 23,016 shadda instances by context:
   - true_doubling: root-internal or morphological doubling
   - al_assimilation: لام of definite article assimilated into sun letter
-  - noon_assimilation: نون assimilated into the following letter
+  - noon_assimilation: نون assimilated into the following letter (cross-word only)
 
 Classification is purely context-based (preceding letters in the word).
 No external grammar rules imported — only textual patterns observed.
+
+Analytical choices:
+  - noon_assimilation is cross-word only. Same-word noon+shadda is classified as
+    true_doubling because within-word assimilation is structurally indistinguishable
+    from morphological gemination (e.g. Form II تفعيل) without external morphological
+    knowledge.
+  - Tanween is treated as a shadow noon per the project's tanween framework (§2.7).
+    Cross-word tanween→shadda is therefore classified as noon assimilation: tanween
+    at the end of word A followed by a shadda'd letter at the start of word B is
+    structurally identical to noon-at-end-of-A → shadda-at-start-of-B.
 
 Output: data/processed/letters_with_shadda.csv
 """
@@ -107,15 +117,8 @@ def classify_shadda(rows: list[dict]) -> list[dict]:
                     if alif_cp in ALIF_VARIANTS:
                         new_row["shadda_type"] = "al_assimilation"
 
-            # --- 2. noon-assimilation ---
-            # (a) Same word: preceded by noon
-            if not new_row["shadda_type"] and pos_in_word >= 1:
-                prev = [rows[idx] for idx in word_indices
-                        if rows[idx]["char_idx"] == pos_in_word - 1]
-                if prev and int(prev[0]["codepoint"][2:], 16) == NOON:
-                    new_row["shadda_type"] = "noon_assimilation"
-
-            # (b) Cross-word: word-initial shadda, previous word ends with noon or tanween
+            # --- 2. noon-assimilation (cross-word only) ---
+            # Word-initial shadda, previous word ends with noon or tanween
             if not new_row["shadda_type"] and pos_in_word == 0 and i > 0:
                 prev_row = rows[i - 1]
                 if (prev_row["surah"] == row["surah"]
