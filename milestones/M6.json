@@ -1,0 +1,32 @@
+{
+  "milestone": "M6",
+  "status": "complete",
+  "completed_at": "2026-05-26T14:00 UTC",
+  "total_letter_instances": 327793,
+  "family_distribution": {
+    "singleton": 182676,
+    "cup": 69251,
+    "circle": 15781,
+    "curve": 14226,
+    "knee": 10923,
+    "hook": 10626,
+    "bowl": 10178,
+    "teeth": 8246,
+    "loop": 3760,
+    "cross": 2126
+  },
+  "dot_distribution": {
+    "0": 222188,
+    "1": 63835,
+    "2": 38232,
+    "3": 3538
+  },
+  "non_connector_count": 113480,
+  "output": "data/processed/letters_with_geometry.csv",
+  "columns_added": ["geometric_family", "dot_count", "dot_position", "is_non_connector"],
+  "tests": "tests/test_geometry.py",
+  "tests_passed": 33,
+  "total_suite": 138,
+  "note": "Static lookup by codepoint. 10 families from methodology §2.2. Dots are the minimal differentiator within families. Singletons have unique geometry (no shared base). Non-connectors identified from standard Arabic script joining rules.",
+  "next": "M7: Unified multi-layer dataset (merge all parsed data)"
+}
