@@ -1,0 +1,56 @@
+{
+  "total_rows": 327793,
+  "columns": 27,
+  "layers": [
+    "positional",
+    "diacritics",
+    "shadda",
+    "hamza",
+    "sonic",
+    "geometric"
+  ],
+  "unique_letters": 36,
+  "surahs": 114,
+  "shadda_count": 23016,
+  "tanween_count": 8893,
+  "shadda_types": {
+    "true_doubling": 14244,
+    "al_assimilation": 6457,
+    "noon_assimilation": 2315
+  },
+  "hamza_seats": {
+    "alif_above": 8900,
+    "alif_below": 5088,
+    "standalone": 3059,
+    "ya": 921,
+    "waw": 706
+  },
+  "zone_distribution": {
+    "lisan": 148419,
+    "jawf": 68579,
+    "shafatan": 59672,
+    "aqsa_halq": 33636,
+    "wasat_halq": 13769,
+    "adna_halq": 3718
+  },
+  "family_distribution": {
+    "singleton": 182676,
+    "cup": 69251,
+    "circle": 15781,
+    "curve": 14226,
+    "knee": 10923,
+    "hook": 10626,
+    "bowl": 10178,
+    "teeth": 8246,
+    "loop": 3760,
+    "cross": 2126
+  },
+  "dot_distribution": {
+    "0": 222188,
+    "1": 63835,
+    "2": 38232,
+    "3": 3538
+  },
+  "non_connectors": 113480,
+  "ghunna_count": 61651
+}
