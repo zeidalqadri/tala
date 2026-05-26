@@ -4,16 +4,15 @@
 Classifies each of the 23,016 shadda instances by context:
   - true_doubling: root-internal or morphological doubling
   - al_assimilation: لام of definite article assimilated into sun letter
-  - noon_assimilation: نون assimilated into the following letter (cross-word only)
+  - noon_assimilation: نون assimilated into the following letter
 
 Classification is purely context-based (preceding letters in the word).
 No external grammar rules imported — only textual patterns observed.
 
 Analytical choices:
-  - noon_assimilation is cross-word only. Same-word noon+shadda is classified as
-    true_doubling because within-word assimilation is structurally indistinguishable
-    from morphological gemination (e.g. Form II تفعيل) without external morphological
-    knowledge.
+  - For the ٱللّ pattern (lam with shadda at pos 1), only ٱ (alef wasla, U+0671)
+    marks the definite article. إلّا is an indivisible particle (true_doubling),
+    ألّا is أَنْ + لَا contracted (noon_assimilation).
   - Tanween is treated as a shadow noon per the project's tanween framework (§2.7).
     Cross-word tanween→shadda is therefore classified as noon assimilation: tanween
     at the end of word A followed by a shadda'd letter at the start of word B is
@@ -30,13 +29,17 @@ from src.parser.extract_diacritics import (
 )
 from src.parser.verify_source import DEFAULT_SOURCE
 
-# Alif variants that can begin the definite article
+# Alif variants that can begin the definite article (main check, pos >= 2)
 ALIF_VARIANTS = frozenset({
     0x0627,  # ALEF
     0x0671,  # ALEF WASLA
     0x0623,  # ALEF WITH HAMZA ABOVE
     0x0625,  # ALEF WITH HAMZA BELOW
 })
+
+# For the LAM special case (pos==1), only alef wasla marks the definite article.
+# In Uthmani script, ال consistently uses ٱ (U+0671). إلّا and ألّا are not ال.
+ALIF_WASLA = 0x0671
 
 LAM = 0x0644  # ARABIC LETTER LAM
 NOON = 0x0646  # ARABIC LETTER NOON
@@ -107,18 +110,27 @@ def classify_shadda(rows: list[dict]) -> list[dict]:
                         new_row["shadda_type"] = "al_assimilation"
 
             # Special case: lam with shadda at char_idx=1, preceded by alif
-            # This is اللّ pattern (ال + word starting with ل)
+            # ٱللّ pattern (ال + word starting with ل)
             if (not new_row["shadda_type"] and pos_in_word == 1
                     and letter_cp == LAM):
                 prev_letters = [rows[idx] for idx in word_indices
                                 if rows[idx]["char_idx"] == 0]
                 if prev_letters:
                     alif_cp = int(prev_letters[0]["codepoint"][2:], 16)
-                    if alif_cp in ALIF_VARIANTS:
+                    if alif_cp == ALIF_WASLA:
                         new_row["shadda_type"] = "al_assimilation"
+                    elif alif_cp == 0x0623:  # ألّا = أَنْ + لَا contraction
+                        new_row["shadda_type"] = "noon_assimilation"
 
-            # --- 2. noon-assimilation (cross-word only) ---
-            # Word-initial shadda, previous word ends with noon or tanween
+            # --- 2. noon-assimilation ---
+            # (a) Same word: preceded by noon
+            if not new_row["shadda_type"] and pos_in_word >= 1:
+                prev = [rows[idx] for idx in word_indices
+                        if rows[idx]["char_idx"] == pos_in_word - 1]
+                if prev and int(prev[0]["codepoint"][2:], 16) == NOON:
+                    new_row["shadda_type"] = "noon_assimilation"
+
+            # (b) Cross-word: word-initial shadda, previous word ends with noon or tanween
             if not new_row["shadda_type"] and pos_in_word == 0 and i > 0:
                 prev_row = rows[i - 1]
                 if (prev_row["surah"] == row["surah"]
