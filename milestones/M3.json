@@ -2,14 +2,14 @@
   "milestone": "M3",
   "status": "complete",
   "completed_at": "2026-05-26T12:00 UTC",
-  "revised_at": "2026-05-26T13:30 UTC",
+  "revised_at": "2026-05-26T16:00 UTC",
   "total_letter_instances": 327793,
   "shadda_total": 23016,
-  "shadda_true_doubling": 13843,
-  "shadda_al_assimilation": 7170,
-  "shadda_noon_assimilation": 2003,
+  "shadda_true_doubling": 14244,
+  "shadda_al_assimilation": 6457,
+  "shadda_noon_assimilation": 2315,
   "output": "data/processed/letters_with_shadda.csv",
   "tests": "tests/test_decompose_shadda.py",
   "tests_passed": 13,
-  "note": "noon_assimilation is cross-word only. Same-word noon+shadda reclassified as true_doubling (morphological gemination indistinguishable from assimilation without external verb-form knowledge). Tanween treated as shadow noon per project framework (§2.7)."
+  "note": "LAM special case (pos==1) restricted to alef wasla (U+0671) only. إلّا (664) reclassified as true_doubling (indivisible particle). ألّا (49) reclassified as noon_assimilation (أَنْ + لَا contraction). Same-word noon+shadda restored to noon_assimilation. Tanween treated as shadow noon per project framework (§2.7)."
 }
