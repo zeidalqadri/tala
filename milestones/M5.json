@@ -1,0 +1,24 @@
+{
+  "milestone": "M5",
+  "status": "complete",
+  "completed_at": "2026-05-26T13:00 UTC",
+  "total_letter_instances": 327793,
+  "zone_distribution": {
+    "1_jawf": 68579,
+    "2_aqsa_halq": 33636,
+    "3_wasat_halq": 13769,
+    "4_adna_halq": 3718,
+    "5_lisan": 148419,
+    "6_shafatan": 59672
+  },
+  "has_ghunna_true": 61651,
+  "note_zone_method": "Static lookup by codepoint. Context-dependent for waw (U+0648) and ya (U+064A): short vowel on the letter (fatha/kasra/damma) → consonantal zone; sukoon or no harakat → madd → zone 1.",
+  "note_ta_marbuta": "ة (U+0629) assigned zone 5 (tongue) — same anatomical locus as ت. Distributional comparison with ت and هـ is a finding, not an assumption.",
+  "note_ghunna": "has_ghunna=True for ن (27,380) + م (27,071) + tanween-carrying letters (7,200). Zone 7 (خيشوم) encoded as secondary boolean, not a primary zone override.",
+  "output": "data/processed/letters_with_zones.csv",
+  "columns_added": ["zone", "zone_name", "has_ghunna"],
+  "tests": "tests/test_assign_zones.py",
+  "tests_passed": 31,
+  "total_suite": 105,
+  "next": "M6: Geometric family assignment (10 families + dot configuration)"
+}
