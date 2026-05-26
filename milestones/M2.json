@@ -1,0 +1,11 @@
+{
+  "milestone": "M2",
+  "status": "complete",
+  "completed_at": "2026-05-26T12:00 UTC",
+  "total_letter_instances": 327793,
+  "shadda_count": 23016,
+  "tanween_count": 8893,
+  "output": "data/processed/letters_with_diacritics.csv",
+  "tests": "tests/test_extract_diacritics.py",
+  "tests_passed": 13
+}
