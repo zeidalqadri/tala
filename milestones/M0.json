@@ -1,0 +1,24 @@
+{
+  "milestone": "M0",
+  "status": "complete",
+  "total_letters": 327793,
+  "sources_verified": true,
+  "verified_at": "2026-05-25T20:18 UTC",
+  "sha256": "bb2fe2b9e86b532228d7f74005080c1679c14aa2da6024fe30d29772f4f5b189",
+  "character_inventory": {
+    "total_characters": 699089,
+    "verse_text_fields": 6348,
+    "letter_instances": 327793,
+    "unique_letter_forms": 36,
+    "diacritic_instances": 297019,
+    "unique_diacritic_types": 21,
+    "words": 77878,
+    "zero_invisible_chars": true,
+    "surahs": 114,
+    "verses": 6236
+  },
+  "notes": [
+    "VR001 summary states 325,665 letter instances but individual counts sum to 327,793 (off by 2,128 — arithmetic error in report summary)",
+    "VR001 total character count (705,436) includes 6,347 leading/joining spaces not counted in raw attribute extraction (699,089). All per-character counts match."
+  ]
+}
